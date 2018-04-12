@@ -12,5 +12,7 @@
 		<hr>
 		<h3>Pages</h3>
 		<a href="${pageContext.request.contextPath}/products">Product Info</a>	
+		<hr>
+		<a href="${pageContext.request.contextPath}/orders">Orders Info</a>	
 	</body>
 </html>
