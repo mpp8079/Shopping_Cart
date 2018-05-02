@@ -3,10 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+table, th, td {
+    border: 1px solid black;
+}
+</style>
 <%@ page isELIgnored="false" %>
 <title>List Customers</title>
 </head>
 	<body>
+	<input type="button" value="Add Order"
+				onclick="window.location.href='showOrderForm';return false;"
+				class="add-button"
+			>
+			<hr>
 		
 			<!-- add html table here -->
 				<table>
@@ -22,14 +33,14 @@
 					</tr>					
 					<c:forEach var="tempOrders" items="${orders}">					
 						<tr>
-						<td> ${orders.id} </td>
-						<td> ${orders.amount} </td>
-						<td> ${orders.cusAddress} </td>
-						<td> ${orders.cusEmail} </td>
-						<td> ${orders.cusName} </td>
-						<td> ${orders.cusPhone} </td>
-						<td> ${orders.orderDate} </td>
-						<td> ${orders.orderNum} </td>
+						<td> ${tempOrders.id} </td>
+						<td> ${tempOrders.amount} </td>
+						<td> ${tempOrders.cusAddress} </td>
+						<td> ${tempOrders.cusEmail} </td>
+						<td> ${tempOrders.cusName} </td>
+						<td> ${tempOrders.cusPhone} </td>
+						<td> ${tempOrders.orderDate} </td>
+						<td> ${tempOrders.orderNum} </td>
 										
 					</tr>										
 					</c:forEach>

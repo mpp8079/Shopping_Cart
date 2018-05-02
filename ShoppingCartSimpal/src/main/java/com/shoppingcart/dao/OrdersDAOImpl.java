@@ -20,17 +20,19 @@ public class OrdersDAOImpl implements OrdersDAO {
 	private SessionFactory sessionFactory;
 
 
-	@Override	
+	@Override
+	@Transactional
 	public List<Orders> getAllOrders() {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		List<Orders> orders = session.createQuery("from Orders order by id").list();
 		return orders;
 	}
 
 	@Override
+	@Transactional
 	public void addOrUpdateOrder(Orders order) {
-		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(order);
 	}
 
 	@Override

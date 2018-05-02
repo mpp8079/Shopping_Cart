@@ -16,24 +16,24 @@ public class ProductServiceImp implements ProductService {
 	@Autowired
 	private ProductDAO productDAO;
 
-	@Transactional
+
 	@Override
 	public List<Products> getProducts() {		
 		return productDAO.getProducts();
 	}
 
-	@Transactional
+	
 	@Override
 	public void addOrUpdateProduct(Products product) {
-		// TODO Auto-generated method stub
+		productDAO.addOrUpdateProduct(product);
 
 	}
 
-	@Transactional
+	
 	@Override
 	public void deleteProduct(String code) {
-		// TODO Auto-generated method stub
-
+		productDAO.deleteProduct(code);
+		
 	}
 
 	@Transactional

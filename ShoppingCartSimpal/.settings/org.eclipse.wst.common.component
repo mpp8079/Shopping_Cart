@@ -4,6 +4,6 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <property name="java-output-path" value="/ShoppingCart/target/classes"/>
-        <property name="context-root" value="ShoppingCart"/>
+        <property name="context-root" value="ShoppingCartSimpal"/>
     </wb-module>
 </project-modules>

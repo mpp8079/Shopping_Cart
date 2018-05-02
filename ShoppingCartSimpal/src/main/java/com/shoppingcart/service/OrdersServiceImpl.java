@@ -18,7 +18,7 @@ public class OrdersServiceImpl implements OrdersService {
 	private OrdersDAO ordersDAO;
 
 	
-	@Transactional
+	
 	@Override
 	public List<Orders> getAllOrders() {		
 		return ordersDAO.getAllOrders();
@@ -26,8 +26,7 @@ public class OrdersServiceImpl implements OrdersService {
 
 	@Override
 	public void addOrUpdateOrder(Orders order) {
-		// TODO Auto-generated method stub
-
+		 ordersDAO.addOrUpdateOrder(order);
 	}
 
 	@Override

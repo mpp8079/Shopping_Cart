@@ -3,11 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+table, th, td {
+    border: 1px solid black;
+}
+</style>
 <%@ page isELIgnored="false" %>
 <title>List Customers</title>
 </head>
 	<body>
-		
+		<input type="button" value="Add Product"			
+					onclick="window.location.href='showFormForProductAdd';return false;"
+				class="add-button"
+			>
+			<hr>
 			<!-- add html table here -->
 				<table>
 				     <tr>
@@ -16,14 +26,29 @@
 						<th>Image</th>					
 						<th>Name</th>
 						<th>Price</th>
+						<th>Action</th>
 					</tr>					
-					<c:forEach var="tempProduct" items="${products}">					
+					<c:forEach var="tempProduct" items="${products}">
+					
+					<!-- construct an delete link with customer id -->					
+					<c:url var="deleteProduct" value="deleteProduct">
+						<c:param name="code" value="${tempProduct.code}"/>
+					
+					</c:url>
 						<tr>
-						<td> ${tempProduct.code} </td>
+						<td> ${tempProduct.code}</td>
 						<td> ${tempProduct.createDate} </td>
 						<td> ${tempProduct.image} </td>
 						<td> ${tempProduct.name} </td>
 						<td> ${tempProduct.price} </td>
+						<td> 
+						<a href="${deleteProduct}" 
+						onclick="if(!(confirm('Are you sure want to delete this item'))) return false">
+						Delete</a> 
+						
+						
+						
+						</td>
 										
 					</tr>										
 					</c:forEach>
