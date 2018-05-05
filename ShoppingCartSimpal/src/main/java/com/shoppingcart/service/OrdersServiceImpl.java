@@ -31,8 +31,7 @@ public class OrdersServiceImpl implements OrdersService {
 
 	@Override
 	public void deleteOrder(String id) {
-		// TODO Auto-generated method stub
-
+		ordersDAO.deleteOrder(id);
 	}
 
 	@Override

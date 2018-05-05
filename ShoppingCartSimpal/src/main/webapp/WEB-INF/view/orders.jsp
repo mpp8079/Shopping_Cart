@@ -30,8 +30,13 @@ table, th, td {
 						<th>Customer Phone</th>
 						<th>Order Date</th>
 						<th>Order Number</th>
+						<th>Action</th>
 					</tr>					
 					<c:forEach var="tempOrders" items="${orders}">					
+					
+					<c:url var="deleteOrder" value="deleteOrder">
+						<c:param name="id" value="${tempOrders.id}"/>					
+					</c:url>
 						<tr>
 						<td> ${tempOrders.id} </td>
 						<td> ${tempOrders.amount} </td>
@@ -41,6 +46,12 @@ table, th, td {
 						<td> ${tempOrders.cusPhone} </td>
 						<td> ${tempOrders.orderDate} </td>
 						<td> ${tempOrders.orderNum} </td>
+						<td>
+						<a href="${deleteOrder}"
+						onclick="if(!(confirm('Are you sure want to delete this Order'))) return false">
+						Delete
+						</a>
+						</td>
 										
 					</tr>										
 					</c:forEach>

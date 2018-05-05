@@ -36,9 +36,11 @@ public class OrdersDAOImpl implements OrdersDAO {
 	}
 
 	@Override
+	@Transactional
 	public void deleteOrder(String id) {
-		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		Orders order = sessionFactory.getCurrentSession().load(Orders.class,id);
+		session.delete(order);
 	}
 
 	@Override

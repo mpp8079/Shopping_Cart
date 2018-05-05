@@ -45,6 +45,14 @@ public class DemoController {
 		return "/ProductsForm";
 	}
 	
+	@RequestMapping("/showFormForProductUpdate")
+	public String updateProdcut(@RequestParam("code") String codeID , Model model){
+		Products product = new Products();
+		product =productService.getProduct(codeID);	
+		model.addAttribute("products" ,	product);		
+		return "/ProductsForm";
+		
+	}
 	
 	@RequestMapping("/saveProduct")
 	public String addProductOrUpdate(@ModelAttribute("products") Products products){		
@@ -59,6 +67,8 @@ public class DemoController {
 		return "redirect:/products";
 	}
 
+	//================================================================
+	
 	
 	@RequestMapping("/orders")
 	public String getAllOrders(Model mode){
@@ -79,5 +89,12 @@ public class DemoController {
 	public String addOrderOrUpdate(@ModelAttribute("orders") Orders order){
 		ordersService.addOrUpdateOrder(order);
 		return "redirect:/orders";
+	}
+	
+	@RequestMapping("/deleteOrder")
+	public String deleteOrder(@RequestParam("id") String orderId){
+		ordersService.deleteOrder(orderId);
+		return "redirect:/orders";
+		
 	}
 }

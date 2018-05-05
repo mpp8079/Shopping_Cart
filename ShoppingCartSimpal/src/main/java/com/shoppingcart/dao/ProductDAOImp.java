@@ -49,9 +49,11 @@ public class ProductDAOImp implements ProductDAO {
 	}
 
 	@Override
+	@Transactional
 	public Products getProduct(String code) {
-		
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		Products product = (Products) session.get(Products.class, code);		
+		return product;
 	}
 
 }

@@ -27,14 +27,19 @@ table, th, td {
 						<th>Name</th>
 						<th>Price</th>
 						<th>Action</th>
+						<th>Action</th>
 					</tr>					
 					<c:forEach var="tempProduct" items="${products}">
 					
 					<!-- construct an delete link with customer id -->					
 					<c:url var="deleteProduct" value="deleteProduct">
-						<c:param name="code" value="${tempProduct.code}"/>
-					
+						<c:param name="code" value="${tempProduct.code}"/>					
 					</c:url>
+					<c:url var="updateProduct" value="/showFormForProductUpdate">
+						<c:param name="code" value="${tempProduct.code}"/>					
+					</c:url>
+					
+					
 						<tr>
 						<td> ${tempProduct.code}</td>
 						<td> ${tempProduct.createDate} </td>
@@ -44,12 +49,12 @@ table, th, td {
 						<td> 
 						<a href="${deleteProduct}" 
 						onclick="if(!(confirm('Are you sure want to delete this item'))) return false">
-						Delete</a> 
-						
-						
-						
+						Delete</a> 						
 						</td>
-										
+						<td> 
+						<a href="${updateProduct}">
+						Edit</a> 						
+						</td>				
 					</tr>										
 					</c:forEach>
 				</table>	
