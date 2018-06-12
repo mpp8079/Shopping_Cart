@@ -26,6 +26,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		stringConverter.setSupportedMediaTypes(Arrays.asList(new MediaType("text","plain",UTF8)));
 		converters.add(stringConverter);
 	}
+	
+	
+	
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

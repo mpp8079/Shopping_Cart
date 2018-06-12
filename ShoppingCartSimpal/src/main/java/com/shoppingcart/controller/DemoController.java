@@ -8,9 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.shoppingcart.entity.Orders;
-import com.shoppingcart.entity.Products;
+import com.shoppingcart.entity.Product;
 import com.shoppingcart.service.OrdersService;
 import com.shoppingcart.service.ProductService;
 
@@ -27,12 +28,12 @@ public class DemoController {
 	
 	@RequestMapping("/")
 	public String home(Model mode){		
-		return "index";
+		return "/index";
 	}
 	
 	@RequestMapping("/products")
 	public String showHome(Model mode){
-		List<Products> allProducts = productService.getProducts();
+		List<Product> allProducts = productService.getProducts();
 		mode.addAttribute("products" ,allProducts);
 		return "/products";
 	}
@@ -40,25 +41,25 @@ public class DemoController {
 	
 	@RequestMapping("/showFormForProductAdd")
 	public String showProductForm(Model theMode){
-		Products theProduct = new Products();
+		Product theProduct = new Product();	
 		theMode.addAttribute("products" ,theProduct);
 		return "/ProductsForm";
 	}
 	
-	@RequestMapping("/showFormForProductUpdate")
-	public String updateProdcut(@RequestParam("code") String codeID , Model model){
-		Products product = new Products();
-		product =productService.getProduct(codeID);	
-		model.addAttribute("products" ,	product);		
-		return "/ProductsForm";
-		
-	}
+	
+	
 	
 	@RequestMapping("/saveProduct")
-	public String addProductOrUpdate(@ModelAttribute("products") Products products){		
-		productService.addOrUpdateProduct(products);
+	public String addProductOrUpdate(@ModelAttribute("products") Product product){		
+		productService.addOrUpdateProduct(product);
 		return "redirect:/products";
 	}
+	
+	/*@RequestMapping("/upateProduct")
+	public String updateProduct(@ModelAttribute("products") Products product){		
+		productService.updateProduct(product);
+		return "redirect:/products";
+	}*/
 	
 	
 	@RequestMapping("/deleteProduct")
@@ -66,6 +67,14 @@ public class DemoController {
 		productService.deleteProduct(codeID);
 		return "redirect:/products";
 	}
+	
+	@RequestMapping("/showFormForProductUpdate")
+	public String showProductFormUpdate(@RequestParam("code") String codeID,Model theMode){		
+		Product theProduct =productService.getProduct(codeID);
+		theMode.addAttribute("products" ,theProduct);
+		return "ProductsForm";
+	}
+	
 
 	//================================================================
 	

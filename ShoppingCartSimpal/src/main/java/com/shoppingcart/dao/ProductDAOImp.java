@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.shoppingcart.entity.Products;
+import com.shoppingcart.entity.Product;
 
 @Repository
 public class ProductDAOImp implements ProductDAO {
@@ -21,27 +21,29 @@ public class ProductDAOImp implements ProductDAO {
 
 	@Override
 	@Transactional
-	public List<Products> getProducts() {
+	public List<Product> getProducts() {
 		
 		Session session = sessionFactory.getCurrentSession();
-		List<Products> products = session.createQuery("from Products order by code").list();
-		return products;
+		List<Product> product = session.createQuery("from Products order by code").list();
+		return product;
 	}
 
 	
 	@Override
 	@Transactional
-	public void addOrUpdateProduct(Products product) {
+	public void addOrUpdateProduct(Product product) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(product);
 		
 	}
+		
+
 
 	@Override
 	@Transactional
 	public void deleteProduct(String code) {
 		Session session = sessionFactory.getCurrentSession();
-		Products product = sessionFactory.getCurrentSession().load(Products.class, code);
+		Product product = sessionFactory.getCurrentSession().load(Product.class, code);
 		if(null != product){
 		session.delete(product);
 		}
@@ -50,10 +52,18 @@ public class ProductDAOImp implements ProductDAO {
 
 	@Override
 	@Transactional
-	public Products getProduct(String code) {
+	public Product getProduct(String code) {
 		Session session = sessionFactory.getCurrentSession();
-		Products product = (Products) session.get(Products.class, code);		
+		Product product = (Product) session.get(Product.class, code);		
 		return product;
+	}
+
+
+	@Override
+	public void updateProduct(Product product) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(product);
+		
 	}
 
 }

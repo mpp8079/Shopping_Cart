@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingcart.dao.ProductDAO;
-import com.shoppingcart.entity.Products;
+import com.shoppingcart.entity.Product;
 
 
 @Service
@@ -18,13 +18,13 @@ public class ProductServiceImp implements ProductService {
 
 
 	@Override
-	public List<Products> getProducts() {		
+	public List<Product> getProducts() {		
 		return productDAO.getProducts();
 	}
 
 	
 	@Override
-	public void addOrUpdateProduct(Products product) {
+	public void addOrUpdateProduct(Product product) {
 		productDAO.addOrUpdateProduct(product);
 
 	}
@@ -38,8 +38,18 @@ public class ProductServiceImp implements ProductService {
 
 
 	@Override
-	public Products getProduct(String code) {		
+	public Product getProduct(String code) {		
 		return productDAO.getProduct(code);
 	}
+
+
+	@Override
+	public void updateProduct(Product product) {
+		productDAO.updateProduct(product);
+		
+	}
+
+
+	
 
 }

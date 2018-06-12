@@ -7,7 +7,7 @@
 <title>List Customers</title>
 </head>
 	<body>
-	<form:form  action="saveProduct"  modelAttribute="products">
+	<form:form  action="saveProduct" method="POST"   modelAttribute="products">
 	<table>
 	<tbody>
 			<tr>

@@ -13,7 +13,7 @@ import com.shoppingcart.entity.Orders;
 
 
 @Repository
-public class OrdersDAOImpl implements OrdersDAO {
+public class OrderDAOImpl implements OrderDAO {
 	
 	
 	@Autowired
@@ -45,8 +45,9 @@ public class OrdersDAOImpl implements OrdersDAO {
 
 	@Override
 	public Orders getOrder(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		Orders order = sessionFactory.getCurrentSession().load(Orders.class,id);
+		return order;
 	}
 
 }

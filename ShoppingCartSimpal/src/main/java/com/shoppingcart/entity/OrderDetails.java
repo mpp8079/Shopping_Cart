@@ -38,11 +38,8 @@ public class OrderDetails {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="PRODUCT_ID", nullable=false,
 	foreignKey = @ForeignKey(name="ORDER_DETAIL_PROD_FK"))
-	private Products productId;
+	private Product productId;
 	
-	public OrderDetails() {
-		
-	}
 
 	public String getId() {
 		return id;
@@ -84,11 +81,11 @@ public class OrderDetails {
 		this.orderId = orderId;
 	}
 
-	public Products getProductId() {
+	public Product getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Products productId) {
+	public void setProductId(Product productId) {
 		this.productId = productId;
 	}
 

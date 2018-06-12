@@ -17,9 +17,17 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.shoppingcart.dao.AccountDAOImpl;
+import com.shoppingcart.dao.OrderDAO;
+import com.shoppingcart.dao.OrderDAOImpl;
+import com.shoppingcart.dao.ProductDAO;
+import com.shoppingcart.dao.ProductDAOImp;
+import com.shoppingcart.dao.AccountDAO;;
 
 @Configuration
 @EnableWebMvc
@@ -48,6 +56,14 @@ public class ApplicatinContextConfig {
 		viewResolver.setPrefix("/WEB-INF/view/");
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
+		
+	}
+	
+	
+	@Bean(name="multipartResolver")
+	public CommonsMultipartResolver multipartResolver(){
+		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+		return commonsMultipartResolver;
 		
 	}
 	
@@ -104,6 +120,27 @@ public class ApplicatinContextConfig {
 		
 		return transactionManager;
 		
+	}
+	
+	@Bean(name="accountDAO")
+	public AccountDAO getApplicantDAO(){
+		return new AccountDAOImpl();
+	}
+	
+	@Bean(name="productDAO")
+	public ProductDAO getProductDAO(){
+		return new ProductDAOImp();
+		
+	}
+	
+	@Bean(name="orderDAO")
+	public OrderDAO getOrderDAO(){
+		return new OrderDAOImpl();
+	}
+	
+	@Bean(name="accountDAO")
+	public AccountDAO getAccountDAO(){
+		return new AccountDAOImpl();
 	}
 
 }

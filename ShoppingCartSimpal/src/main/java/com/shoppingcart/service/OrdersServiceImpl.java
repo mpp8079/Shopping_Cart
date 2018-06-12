@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.shoppingcart.dao.OrdersDAO;
+import com.shoppingcart.dao.OrderDAO;
 import com.shoppingcart.entity.Orders;
 
 
@@ -15,23 +15,23 @@ public class OrdersServiceImpl implements OrdersService {
 	
 	
 	@Autowired
-	private OrdersDAO ordersDAO;
+	private OrderDAO orderDAO;
 
 	
 	
 	@Override
 	public List<Orders> getAllOrders() {		
-		return ordersDAO.getAllOrders();
+		return orderDAO.getAllOrders();
 	}
 
 	@Override
 	public void addOrUpdateOrder(Orders order) {
-		 ordersDAO.addOrUpdateOrder(order);
+		 orderDAO.addOrUpdateOrder(order);
 	}
 
 	@Override
 	public void deleteOrder(String id) {
-		ordersDAO.deleteOrder(id);
+		orderDAO.deleteOrder(id);
 	}
 
 	@Override

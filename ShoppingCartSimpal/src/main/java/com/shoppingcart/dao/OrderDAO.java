@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.shoppingcart.entity.Orders;
 
-public interface OrdersDAO {
+public interface OrderDAO {
 	
 	public List<Orders> getAllOrders();
 	

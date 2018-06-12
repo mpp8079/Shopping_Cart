@@ -6,39 +6,36 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="Products")
-public class Products {
+public class Product {
 	
 	
 	@Id
 	@Column(name="Code" , nullable=false )
 	private String code;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	@Column(name="Create_Date" , nullable=false )
 	private Date createDate;
 	
 	
-	@Lob
-	@Column(name="Image" , nullable=false )
+
+	@Column(name="Image"  )
 	private byte[] image;
 	
 	@Column(name="Name" , nullable=false )
 	private String name;
 	
 	@Column(name="Price" , nullable=false )
-	private double price;
-	
-	
-	public Products() {
-		
-	}
+	private double price;	
 
 
 	public String getCode() {

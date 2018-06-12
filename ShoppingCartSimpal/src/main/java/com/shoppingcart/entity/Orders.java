@@ -44,9 +44,7 @@ public class Orders {
 	private int orderNum;
 	
 	
-	public Orders() {
-		
-	}
+	
 
 
 	public String getId() {

@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.shoppingcart.entity.Orders;
 import com.shoppingcart.entity.OrderDetails;
-import com.shoppingcart.entity.Products;
+import com.shoppingcart.entity.Product;
 
 public class DBTesting {
 	
@@ -19,7 +19,7 @@ public class DBTesting {
 				configure().
 				addAnnotatedClass(Orders.class).
 				addAnnotatedClass(OrderDetails.class).
-				addAnnotatedClass(Products.class).buildSessionFactory();
+				addAnnotatedClass(Product.class).buildSessionFactory();
 
 Session session = factory.getCurrentSession();
 session.beginTransaction();
