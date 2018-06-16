@@ -19,6 +19,16 @@ public class ProductInfo {
 	
 	}
 	
+	
+	
+	public ProductInfo(String code, String name, double price) {		
+		this.code = code;
+		this.name = name;
+		this.price = price;
+	}
+
+
+
 	public ProductInfo(Product product){
 		this.code=product.getCode();
 		this.name=product.getName();

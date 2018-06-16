@@ -7,7 +7,7 @@ public class OrderInfo {
 	
 	private String id;
 	private Date orderDate;
-	private String orderNum;
+	private int orderNum;
 	private double amount;
 	
 	
@@ -24,7 +24,7 @@ public class OrderInfo {
 	}
 
 
-	public OrderInfo(String id, Date orderDate, String orderNum, double amount, String customerName,
+	public OrderInfo(String id, Date orderDate, int orderNum, double amount, String customerName,
 			String customerAddress, String customerEmail, String customerPhone) {
 		
 		this.id = id;
@@ -58,12 +58,12 @@ public class OrderInfo {
 	}
 
 
-	public String getOrderNum() {
+	public int getOrderNum() {
 		return orderNum;
 	}
 
 
-	public void setOrderNum(String orderNum) {
+	public void setOrderNum(int orderNum) {
 		this.orderNum = orderNum;
 	}
 

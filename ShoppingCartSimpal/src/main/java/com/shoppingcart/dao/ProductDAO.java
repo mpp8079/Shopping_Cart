@@ -1,23 +1,21 @@
 package com.shoppingcart.dao;
 
-import java.util.List;
-
 import com.shoppingcart.entity.Product;
+import com.shoppingcart.model.PaginationResult;
+import com.shoppingcart.model.ProductInfo;
 
 public interface ProductDAO {
 	
-	public List<Product> getProducts();
+	public Product findProduct(String code);
 	
-	public void addOrUpdateProduct(Product product);
+	public ProductInfo findProductInfo(String code);
 	
-	public void deleteProduct(String code);
-	
-	public Product getProduct(String code);
-
-	public void updateProduct(Product product);
+	 public PaginationResult<ProductInfo> queryProducts(int page,
+             int maxResult, int maxNavigationPage  );
 	
 	
+	 public PaginationResult<ProductInfo> queryProducts(int page, int maxResult,
+             int maxNavigationPage, String likeName);
 	
-	
-
+	 public void save(ProductInfo productInfo);
 }

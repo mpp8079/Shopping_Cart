@@ -2,21 +2,20 @@ package com.shoppingcart.dao;
 
 import java.util.List;
 
-import com.shoppingcart.entity.Orders;
+import com.shoppingcart.model.CartInfo;
+import com.shoppingcart.model.OrderDetailInfo;
+import com.shoppingcart.model.OrderInfo;
+import com.shoppingcart.model.PaginationResult;
 
 public interface OrderDAO {
 	
-	public List<Orders> getAllOrders();
+	public void saveOrder(CartInfo cartInfo);
 	
+	public PaginationResult<OrderInfo> listOrderInfo(int page,
+            int maxResult, int maxNavigationPage);
 	
-	public void addOrUpdateOrder(Orders order);
-	
-	
-	public void deleteOrder(String id);
-	
-	
-	public Orders getOrder(String id);
-	
+	public OrderInfo getOrderInfo(String orderId);
 	
 
+	public List<OrderDetailInfo> listOrderDetailInfos(String orderId);
 }

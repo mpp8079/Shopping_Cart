@@ -12,9 +12,7 @@ import javax.persistence.UniqueConstraint;
 @Table(name="Orders",//
 uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
 
-public class Orders {
-	
-	
+public class Order {	
 	
 	@Id
 	@Column(name="ID", nullable=false )
@@ -33,9 +31,7 @@ public class Orders {
 	private String cusName;
 	
 	@Column(name="Customer_Phone", nullable=false )
-	private String cusPhone;
-	
-	
+	private String cusPhone;	
 	
 	@Column(name="Order_Date", nullable=false )
 	private Date orderDate;
@@ -44,7 +40,9 @@ public class Orders {
 	private int orderNum;
 	
 	
-	
+	public Order() {
+		
+	}
 
 
 	public String getId() {

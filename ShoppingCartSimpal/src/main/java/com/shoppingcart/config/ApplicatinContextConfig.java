@@ -22,12 +22,12 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.shoppingcart.dao.AccountDAO;
 import com.shoppingcart.dao.AccountDAOImpl;
 import com.shoppingcart.dao.OrderDAO;
 import com.shoppingcart.dao.OrderDAOImpl;
 import com.shoppingcart.dao.ProductDAO;
-import com.shoppingcart.dao.ProductDAOImp;
-import com.shoppingcart.dao.AccountDAO;;
+import com.shoppingcart.dao.ProductDAOImpl;;
 
 @Configuration
 @EnableWebMvc
@@ -43,10 +43,11 @@ public class ApplicatinContextConfig {
 	@Bean
 	public ResourceBundleMessageSource messageSource(){
 		ResourceBundleMessageSource rb = new ResourceBundleMessageSource();
-		rb.setBasenames(new String[] {"message/validator"});
+		rb.setBasenames(new String[] {"messages/validator"});
 		return rb;
 		
 	}
+	
 	
 	
 	@Bean(name="viewResolver")
@@ -60,12 +61,12 @@ public class ApplicatinContextConfig {
 	}
 	
 	
-	@Bean(name="multipartResolver")
+	/*@Bean(name="multipartResolver")
 	public CommonsMultipartResolver multipartResolver(){
 		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
 		return commonsMultipartResolver;
 		
-	}
+	}*/
 	
 	
 	@Bean(name="dataSource")
@@ -129,7 +130,7 @@ public class ApplicatinContextConfig {
 	
 	@Bean(name="productDAO")
 	public ProductDAO getProductDAO(){
-		return new ProductDAOImp();
+		return new ProductDAOImpl();
 		
 	}
 	
