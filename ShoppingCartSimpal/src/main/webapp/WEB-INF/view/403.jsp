@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
  
-<title>Books Shop Online</title>
+<title>Access Denied</title>
  
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
  
@@ -16,20 +16,10 @@
    <jsp:include page="_header.jsp" />
    <jsp:include page="_menu.jsp" />
  
-   <div class="page-title">Shopping Cart Demo</div>
+   <div class="page-title">Access Denied!</div>
   
-   <div class="demo-container">
-   <h3>Demo content</h3>
+   <h3 style="color:red;">Sorry, you can not access this page!</h3> 
   
-   <ul>
-      <li>Buy online</li>
-      <li>Admin pages</li>
-      <li>Reports</li>
-   </ul>
-   </div>
-  
-  
- 
  
 </body>
 </html>

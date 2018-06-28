@@ -12,6 +12,8 @@ import javax.persistence.Table;
 @Table(name="Accounts")
 public class Account implements Serializable {
 	
+	private static final long serialVersionUID = -2054386655979281969L;
+	
 	public static final String ROLE_MANAGER= "MANAGER";
 	public static final String ROLE_EMPLOYEE= "EMPLOYEE";
 	
@@ -29,9 +31,7 @@ public class Account implements Serializable {
 	private boolean active;
 	
 	
-	public Account() {
-		
-	}
+
 
 
 	public String getUserName() {

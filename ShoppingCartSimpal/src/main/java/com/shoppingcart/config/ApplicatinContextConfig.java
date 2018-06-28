@@ -61,7 +61,7 @@ public class ApplicatinContextConfig {
 	}
 	
 	
-	/*@Bean(name="multipartResolver")
+/*	@Bean(name="multipartResolver")
 	public CommonsMultipartResolver multipartResolver(){
 		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
 		return commonsMultipartResolver;

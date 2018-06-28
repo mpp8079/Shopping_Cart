@@ -34,7 +34,7 @@ public class OrderDAOImpl implements OrderDAO {
 	ProductDAO productDAO;
 
 	private int getMaxOrderNum() {
-		String sql = "Select max(o.orderNum) from"+ Order.class.getName() + " o "; ;
+		String sql = "Select max(o.orderNum) from " + Order.class.getName() + " o ";
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(sql);
 		Integer value = (Integer) query.uniqueResult();
@@ -72,7 +72,7 @@ public class OrderDAOImpl implements OrderDAO {
 			detail.setOrderId(order);
 			detail.setAmount(line.getAmount());
 			detail.setPrice(line.getProductInfo().getPrice());
-			detail.setQt(line.getQuantity());
+			detail.setQuanity(line.getQuantity());
 			
 			String code = line.getProductInfo().getCode();
 			Product product = this.productDAO.findProduct(code);
@@ -87,7 +87,7 @@ public class OrderDAOImpl implements OrderDAO {
 	public PaginationResult<OrderInfo> listOrderInfo(int page, int maxResult, int maxNavigationPage) {
 		String sql = "Select new "+OrderInfo.class.getName()    
 				+ "(ord.id, ord.orderDate, ord.orderNum, ord.amount, "
-                + " ord.customerName, ord.customerAddress, ord.customerEmail, ord.customerPhone) "
+                + " ord.cusName, ord.cusAddress, ord.cusEmail, ord.cusPhone) "
                 + "" + " from "
                 + Order.class.getName() + " ord "//
                 + " order by ord.orderNum desc";
@@ -117,18 +117,17 @@ public class OrderDAOImpl implements OrderDAO {
 
 	@Override
 	public List<OrderDetailInfo> listOrderDetailInfos(String orderId) {
-		Session session = sessionFactory.getCurrentSession();
-		List<OrderDetailInfo> orderDetailInfo = session.createQuery("from OrderDetails order by orderId").list();
-	/*	String sql = "Select new " + OrderDetailInfo.class.getName() //
-                + "(d.id, d.product.code, d.product.name , d.quanity,d.price,d.amount) "//
-                + " from " + OrderDetails.class.getName() + " d "//
-                + " where d.order.id = :orderId ";
-		
-		Session session = this.sessionFactory.getCurrentSession();
-		Query query = session.createQuery(sql);
-		query.setParameter("orderId",orderId);
-		return query.list();*/
-		return orderDetailInfo;
+		 String sql = "Select new " + OrderDetailInfo.class.getName() //
+	                + "(d.id, d.product.code, d.product.name , d.quanity,d.price,d.amount) "//
+	                + " from " + OrderDetails.class.getName() + " d "//
+	                + " where d.order.id = :orderId ";
+	 
+	        Session session = this.sessionFactory.getCurrentSession();
+	 
+	        Query query = session.createQuery(sql);
+	        query.setParameter("orderId", orderId);
+	 
+	        return query.list();
 	}
 
 }

@@ -26,19 +26,19 @@ public class OrderDetails {
 	private double price;
 	
 	@Column(name="Quanity" , nullable=false )
-	private int qt;
+	private int quanity;
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ORDER_ID", nullable=false,
 	foreignKey = @ForeignKey(name="ORDER_DETAIL_ORD_FK"))
-	private Order orderId;
+	private Order order;
 	
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="PRODUCT_ID", nullable=false,
 	foreignKey = @ForeignKey(name="ORDER_DETAIL_PROD_FK"))
-	private Product productId;
+	private Product product;
 	
 
 	public String getId() {
@@ -65,34 +65,34 @@ public class OrderDetails {
 		this.price = price;
 	}
 
-	public int getQt() {
-		return qt;
+	public int getQuanity() {
+		return quanity;
 	}
 
-	public void setQt(int qt) {
-		this.qt = qt;
+	public void setQuanity(int quanity) {
+		this.quanity = quanity;
 	}
 
-	public Order getOrderId() {
-		return orderId;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setOrderId(Order orderId) {
-		this.orderId = orderId;
+	public void setOrderId(Order order) {
+		this.order = order;
 	}
 
-	public Product getProductId() {
-		return productId;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProductId(Product productId) {
-		this.productId = productId;
+	public void setProductId(Product product) {
+		this.product = product;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderDetails [id=" + id + ", amount=" + amount + ", price=" + price + ", qt=" + qt + ", orderId="
-				+ orderId + ", productId=" + productId + "]";
+		return "OrderDetails [id=" + id + ", amount=" + amount + ", price=" + price + ", qt=" + quanity + ", orderId="
+				+ order + ", productId=" + product + "]";
 	}
 
 	

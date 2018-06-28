@@ -7,7 +7,7 @@ public class OrderDetailInfo {
 	private String productCode;
 	private String productName;
 	
-	private int quantity;
+	private int quanity;
 	private double price;
 	private double amount;
 	
@@ -17,13 +17,13 @@ public class OrderDetailInfo {
 	}
 
 
-	public OrderDetailInfo(String id, String productCode, String productName, int quantity, double price,
+	public OrderDetailInfo(String id, String productCode, String productName, int quanity, double price,
 			double amount) {
 		super();
 		this.id = id;
 		this.productCode = productCode;
 		this.productName = productName;
-		this.quantity = quantity;
+		this.quanity = quanity;
 		this.price = price;
 		this.amount = amount;
 	}
@@ -59,13 +59,13 @@ public class OrderDetailInfo {
 	}
 
 
-	public int getQuantity() {
-		return quantity;
+	public int getQuanity() {
+		return quanity;
 	}
 
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setQuanity(int quanity) {
+		this.quanity = quanity;
 	}
 
 

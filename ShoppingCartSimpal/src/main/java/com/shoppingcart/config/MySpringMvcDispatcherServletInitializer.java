@@ -22,4 +22,5 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
 		return new String[]{"/"};
 	}
 
+
 }
